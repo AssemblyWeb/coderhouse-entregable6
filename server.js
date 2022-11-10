@@ -19,39 +19,22 @@ io.on("connection", (socket) => {
 
     let chatLog = []
     //receive and store data from Client
-    socket.on('CLIENT_MESSAGE', (data) => {
+    socket.on('CLIENT_MESSAGE', async (data) => {
         //get persisted data from json
-        const getMessages = async (data) => {
-            try {
-                dataLog = await fs.promises.readFile(`./model/chat/chat.json`, 'utf8')
-                chatLog = JSON.parse(dataLog)
-                chatLog.push(data)
+        dataLog = await fs.promises.readFile(`./model/chat/chat.json`, 'utf8')
+        chatLog = JSON.parse(dataLog)
+        chatLog.push(data)
 
-                await fs.promises.writeFile(`./model/chat/chat.json`, JSON.stringify(chatLog), 'utf8')
+        await fs.promises.writeFile(`./model/chat/chat.json`, JSON.stringify(chatLog), 'utf8')
 
-
-                storeMessage(data)
-            } catch (error) {
-                console.error(error)
-            }
-        }
-        getMessages(data)
     })
-
     // send all data to View
-    socket.emit('SERVER_MESSAGE', () => {
-
-        //get persisted data from json
-        const getMessages = async () => {
-            try {
-                dataLog = await fs.promises.readFile(`./model/chat/chat.json`, 'utf8')
-                return dataLog
-            } catch (error) {
-                console.error(error)
-            }
-        }
-        getMessages()
-
-    })
+    const sendMessagetoClient = async () => {
+        chatLog = await fs.promises.readFile(`./model/chat/chat.json`, 'utf8')
+        chatLog = JSON.parse(chatLog)
+        console.log(chatLog)
+        socket.emit('SERVER_MESSAGE', chatLog)
+    }
+    sendMessagetoClient()
 })
 

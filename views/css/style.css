@@ -1,3 +1,8 @@
+/* GENERIC */
+.text-brown {
+    color: #a52a2a;
+}
+
 .chat-button {
     position: absolute;
     bottom: 30px;
@@ -16,6 +21,7 @@
     opacity: 0;
     overflow-y: scroll;
     transition: all ease 0.3s;
+    border-radius: 10px 10px 0 10px;
 }
 
 .chat-box--isOpen {

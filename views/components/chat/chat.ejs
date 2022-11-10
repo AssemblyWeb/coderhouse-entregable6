@@ -1,14 +1,13 @@
 <div id="chatBox" class="chat-box border border-success bg-white">
+    <form action="" class="">
 
-    <input type="text" class="form-control" id="chatEmail" required>
-    
-    <div class="chat-message">
-        <span class="chat--message-email">asd@asd.com</span>
-        <span class="chat--message-date">DD/MM/YYYY HH:MM:SS</span>
-        <span class="chat--message-text">Lorem ipsum, dolor sit amet</span>
-    </div>
-    
+        <input type="email" required class="form-control" id="chatEmail" placeholder="Enter your email" required>
 
-    <input type="text" class="form-control" id="chatMessage" aria-describedby="emailHelp" required>
-    <button type="submit" class="btn btn-primary" onclick="sendNewMessage()">Send</button>
+        <div id="chatBoxMessages" class="chat-message"></div>
+        
+        <input type="text" class="form-control" id="chatMessage" aria-describedby="emailHelp" placeholder="Write a message">
+            
+        <button type="submit" class="btn btn-primary w-100 mt-2" onclick="sendNewMessage()">Send</button>
+
+        </form>
 </div>
