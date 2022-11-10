@@ -1,0 +1,32 @@
+
+<div class="container bg-white p-5">
+    <% if(allProducts.length < 1) { %>
+        <div class="alert alert-info" role="alert">
+            No hay productos cargados
+          </div> 
+    <% } else { %> 
+        <table class="table align-middle table-responsive">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">ID</th>
+                    <th scope="col">Producto</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Foto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- iteration -->
+                <% allProducts.map((product, index) => { %> 
+                    <tr>
+                        <th scope="row"><%= product.id %></th>
+                        <td><%= product.title %></td>
+                        <td><%= product.price %></td>
+                        <td><img class="img-thumbnail img-fluid" style="max-width: 100px" src="<%= product.thumbnail %>" alt="<%= product.title %>"/></td>
+                    </tr>
+                    
+                <% }) %>
+                <!-- end of iteration -->
+            </tbody>
+        </table>
+    <% } %> 
+</div>
