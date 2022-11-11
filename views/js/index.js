@@ -15,7 +15,8 @@ const sendNewMessage = () => {
     }
     const messageObject = {
         email,
-        message
+        message,
+        date: moment().format('DD/MM/YYYY, H:mm:ss')
     }
 
     socket.emit('CLIENT_MESSAGE', messageObject)
@@ -28,15 +29,8 @@ const sendNewMessage = () => {
 socket.on('SERVER_MESSAGE', (data) => {
     const chat = document.querySelector('#chatBoxMessages')
 
-    const dataTimestamp = data.map((message) => {
-        return {
-            date: moment().format('DD/MM/YYYY, H:mm:ss'),
-            ...message
-        }
-    })
-
     let chatLog = ''
-    dataTimestamp.forEach(message => {
+    data.forEach(message => {
         chatLog += `<div><span class="fw-bold text-primary">${message.email} </span><span class="text-brown">${message.date} </span><span class="fst-italic text-success">${message.message}</span></div>`
     })
 
