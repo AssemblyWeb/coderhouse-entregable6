@@ -1,0 +1,31 @@
+/* GENERIC */
+.text-brown {
+    color: #a52a2a;
+}
+
+.chat-button {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+/* CHAT BOX */
+.chat-box {
+    position: absolute;
+    padding: 10px;
+    bottom: 75px;
+    right: 30px;
+    max-width: 300px;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    overflow-y: scroll;
+    transition: all ease 0.3s;
+    border-radius: 10px 10px 0 10px;
+}
+
+.chat-box--isOpen {
+    opacity: 1;
+    width: 100%;
+    height: 300px;
+}

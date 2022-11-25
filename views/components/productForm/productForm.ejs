@@ -1,0 +1,29 @@
+<div class="container bg-white p-5">
+    <h3 class="">Agregá un producto</h3>
+    <div class="products-form w-25">
+        <form action="/productos" method="POST">
+            <!-- title -->
+            <div class="mb-3">
+                <label for="title" class="form-label">Nombre del producto</label>
+                <input type="text" class="form-control" id="title" name="title">
+            </div>
+            <!-- price -->
+            <div class="mb-3">
+                <label for="price" class="form-label">Precio del producto</label>
+                <input type="number" class="form-control" id="price" name="price">
+            </div>
+            <!-- thumbnail -->
+            <div class="mb-3">
+                <label for="thumbnail" class="form-label">Foto del producto</label>
+                <input type="text" class="form-control" id="thumbnail" name="thumbnail">
+            </div>
+            <!-- submit -->
+            <button type="submit" class="btn btn-primary">Cargar producto</button>
+        </form>
+        <% if(title){ %>
+            <div class="alert alert-success mt-3" role="alert">
+                El producto <b><%= title %></b> fue cargado exitosamente!
+            </div>
+        <% } %>
+    </div>
+</div>
